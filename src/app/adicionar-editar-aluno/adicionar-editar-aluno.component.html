@@ -1,0 +1,29 @@
+<h4 mat-dialog-title *ngIf="!data.editar">Adicionar Aluno</h4>
+<h4 mat-dialog-title *ngIf="data.editar">Editar Aluno</h4>
+<div>
+  <strong>Nome: </strong>
+</div>
+<div>
+  <input [(ngModel)]="nome" matInput>
+</div>
+<div>
+  <strong>Matrícula:</strong>
+</div>
+<div>
+  <input [(ngModel)]="matricula" matInput>
+</div>
+<div>
+  <strong>CPF</strong>
+</div>
+<div>
+  <input [(ngModel)]="cpf" matInput mask="000.000.000-00">
+</div>
+<div>
+  <select [(ngModel)]="curso">
+    <option *ngFor="let c of cursos" [value]="c">{{c.nome}}</option>
+  </select>
+</div>
+<div mat-dialog-actions>
+  <button mat-button cdkFocusInitial (click)="adicionarEditarAluno()">Salvar</button>
+  <button mat-button (click)="onNoClick()">Fechar</button>
+</div>
