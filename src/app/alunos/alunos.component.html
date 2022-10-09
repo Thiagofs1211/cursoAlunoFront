@@ -1,0 +1,24 @@
+<input class="btn btn-primary button" type="button" value="Adicionar Aluno" (click)="openDialogAdicionarAluno()">
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Matrícula</th>
+        <th scope="col">CPF</th>
+        <th scope="col">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let aluno of alunos; let i = index">
+        <th>{{i+1}}</th>
+        <td>{{aluno.nome}}</td>
+        <td>{{aluno.alunoPk.matricula}}</td>
+        <td>{{aluno.alunoPk.cpf | mask: '000.000.000-00'}}</td>
+        <td class="">
+            <i class="bi bi-trash3-fill" (click)="excluirAluno(aluno)"></i>
+            <i class="bi bi-pencil-square" (click)="openDialogEditarAluno(aluno)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
